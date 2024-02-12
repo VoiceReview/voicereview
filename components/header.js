@@ -31,7 +31,7 @@ function Header() {
             </Link>
             <nav className="flex items-center gap-16">
                 <NavigationLink href="/">Accueil</NavigationLink>
-                <NavigationLink href="/about">Catégories</NavigationLink>
+                <NavigationLink href="/categories">Catégories</NavigationLink>
                 <NavigationLink href="/contacts">Contact</NavigationLink>
                 <NavigationLink href="/about">A propos</NavigationLink>
                 {user ? (

@@ -33,7 +33,7 @@ return (
             </button>
           </div>
         </div>
-        <Link href="/about">
+        <Link href="/categories">
         <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 my-2">
           Comment ça marche ?
         </button>
