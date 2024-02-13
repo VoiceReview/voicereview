@@ -46,6 +46,32 @@ function RestaurantDetailPage() {
             setIsRecording(false);
         }
     };
+
+    const reviewsSection = (
+        <section className="my-8">
+            <h2 className="text-lg font-semibold mb-4">Avis des clients</h2>
+            <div className="space-y-4">
+                {/* ici lister les avis existants */}
+                {/* À remplacer par des données dynamiques une fois qu'on aura le backend */}
+                <p>Pas d'avis pour le moment. Soyez le premier à en laisser un !</p>
+            </div>
+        </section>
+    );
+
+    // Section pour enregistrer un nouvel avis
+    const recordReviewSection = (
+        <section className="my-8">
+            <h2 className="text-lg font-semibold mb-4">Laissez un avis vocal</h2>
+            <div>
+                {isRecording ? (
+                    <button onClick={stopRecording} className="bg-red-500 text-white p-2 rounded">Arrêter l'enregistrement</button>
+                ) : (
+                    <button onClick={startRecording} className="bg-blue-500 text-white p-2 rounded">Commencer l'enregistrement</button>
+                )}
+                {audioUrl && <audio src={audioUrl} controls className="mt-4"/>}
+            </div>
+        </section>
+    );
     
 
     if (!restaurant) {
@@ -55,17 +81,14 @@ function RestaurantDetailPage() {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
-            <main className="flex-grow p-4">
+            <main className="flex-grow p-4 container mx-auto">
                 <h1 className="text-2xl font-bold text-center mb-6">{restaurant.name}</h1>
-                {}
-                <div>
-                    {isRecording ? (
-                        <button onClick={stopRecording} className="bg-red-500 text-white p-2 rounded">Arrêter l'enregistrement</button>
-                    ) : (
-                        <button onClick={startRecording} className="bg-green-500 text-white p-2 rounded">Commencer l'enregistrement</button>
-                    )}
-                    {audioUrl && <audio src={audioUrl} controls className="mt-4"/>}
-                </div>
+                
+                {/* Section des avis existants */}
+                {reviewsSection}
+
+                {/* Section pour enregistrer un nouvel avis */}
+                {recordReviewSection}
             </main>
             <Footer />
         </div>
